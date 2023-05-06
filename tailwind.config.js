@@ -5,11 +5,15 @@ module.exports = {
     // "./layouts/**/*.vue",
     // "./pages/**/*.vue",
     // "./plugins/**/*.{js,ts}",
-    "./nuxt.config.{js,ts}",
-    "./app.vue",
+    './nuxt.config.{js,ts}',
+    './app.vue',
   ],
   theme: {
+    fontFamily: {
+      cursive: ['Sigmar', 'cursive'],
+      sans: ['Roboto', 'sans-serif'],
+    },
     extend: {},
   },
   plugins: [],
-}
+};
