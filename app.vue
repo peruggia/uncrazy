@@ -1,7 +1,12 @@
 <script lang="ts" setup>
+const toDos = ref<string[]>([])
+const newToDo = ref('')
+
 function handleSubmit() {
-  // TODO: implement
-  console.warn('Must implement handleSubmit');
+  if (newToDo.value) {
+    toDos.value.push(newToDo.value)
+    newToDo.value = ''
+  }
 }
 </script>
 
@@ -16,8 +21,18 @@ function handleSubmit() {
           Do one thing at a time
         </p>
       </header>
+
+      <p
+        v-if="toDos.length"
+        class="my-8 w-full p-4 text-2xl text-gray-600"
+        @click="toDos.splice(0, 1)"
+      >
+        {{ toDos[0] }}
+      </p>
+
       <form class="w-full" @submit.prevent="handleSubmit">
         <input
+          v-model="newToDo"
           class="my-4 w-full rounded-lg border-2 border-gray-300 p-4 text-xl text-gray-700 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-orange-400"
           name="todo"
           placeholder="Type your worry here"
