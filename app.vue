@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-const toDos = ref<string[]>([])
+import { useLocalStorage } from '@vueuse/core'
+
+const toDos = useLocalStorage<string[]>('toDos', [])
 const newToDo = ref('')
 
 function handleSubmit() {
